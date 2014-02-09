@@ -20,6 +20,7 @@
 <body>
 <div class="content">
     <h1><?= $coreTitle ?></h1>
+    <div class="menu-button"></div>
     <?php wp_nav_menu( array(
         "menu" => "Main Menu",
         "theme_location" => "primary",
@@ -27,7 +28,7 @@
         "menu_class" => "navigation rolledUp",
         "fallback_cb" => false,
         "menu_id" => "",
-        container => "nav")
+        "container" => "nav")
     );?>
     <ul class="social">
         <li><a href="https://www.facebook.com/TheLunchboxGardenProject" title="Facebook" class="facebook">Facebook</a></li>

@@ -9,18 +9,18 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "normalize";
 
-$gray: "#878787";
-$green: "#8FC563";
+$gray: #878787;
+$green: #8FC563;
 
 @mixin breakpoint($size) {
     @if $size == small {
         @media only screen and (max-width: 30em) { @content; }
     }
     @else if $size == medium {
-        @media only screen and (min-width: 30em) and (max-width: 48em) { @content; }
+        @media only screen and (min-width: 30.1em) and (max-width: 48em) { @content; }
     }
     @else if $size == large {
-        @media only screen and (min-width: 48em) { @content; }
+        @media only screen and (min-width: 48.1em) { @content; }
     }
 }
 
@@ -78,7 +78,7 @@ h1 {
     max-width: 100%;
 
     @include breakpoint(small) {
-        margin-top: 0.6em;
+        margin-top: 0.8em;
         height: 3.1em;
         width: 10.1em;
     }
@@ -94,39 +94,159 @@ h1 {
     }
 }
 
-.social {
-    float: right;
+nav {
+    @include clearfix;
+
+    ul {
+        @include clearfix;
+        list-style-type: none;
+        padding: 0;
+        @include breakpoint(large) {
+            float: left;
+        }
+
+        .active {
+            background-color: $green;
+            a {
+                color: #FFF;
+            }
+        }
+
+        li {
+            border-radius: 5px;
+            display: block;
+            padding: 0.6em 0.6em;
+            &:not(:last-child) {
+                margin-right: 2%;
+            }
+
+            @include breakpoint(small) {
+                float: left;
+            }
+            @include breakpoint(medium) {
+                float: left;
+            }
+            @include breakpoint(large) {
+                margin: 0.5em 0 0 0;
+            }
+
+            &:hover {
+                background-color: $green;
+                a {
+                    color: #FFF;
+                }
+            }
+
+            a {
+                display: block;
+                color: $gray;
+                text-decoration: none;
+            }
+
+            @include breakpoint(medium) {
+                background-color: $green;
+                a {
+                    color: #FFF;
+                }
+            }
+        }
+    }
+}
+
+.menu-button {
+    background-color: rgb(192, 192, 192);
+    background-color: rgba(192, 192, 192, 0.35);
+    border-radius: 3px;
+    display: none;
+    font-size: 0;
     line-height: 0;
-    margin-right: 1em;
+    color: transparent;
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    height: 40px;
+    width: 46px;
+
+    @include breakpoint(small) {
+        display: block;
+
+        &:before {
+            -webkit-filter: blur(4px);
+            -moz-filter: blur(4px);
+            filter: blur(4px);
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::after {
+        display: none;
+        content: " ";
+        border-color: #fff;
+        border-style: solid none double;
+        border-width: 4px 0 12px;
+        height: 20px;
+        width: 28px;
+        position: absolute;
+        top: 10px;
+        left: 9px;
+
+        @include breakpoint(small) {
+            display: block;
+        }
+    }
+}
+
+.social {
+    line-height: 0;
+    position: absolute;
+    right: 2em;
+    top: 0;
+    list-style-type: none;
+    padding: 0;
+
+    @include breakpoint(small) {
+        position: static;
+        margin: 0 auto;
+        text-align: center;
+    }
+    @include breakpoint(medium) {
+        position: static;
+        margin: 0 auto;
+        text-align: left;
+    }
 
     li {
-        margin: 0 0.2em;
-        height: 40px;
-        width: 40px;
-
+        height: 50px;
+        width: 50px;
+        margin: 0 0 0.5em 0;
         display: inline-block;
-        margin: 0 0.3em;
+
+        @include breakpoint(small) {
+            margin: 0 5%;
+        }
+        @include breakpoint(medium) {
+            margin-right: 1em;
+        }
     }
 
     a {
         background-position: 0;
         background-repeat: no-repeat;
-        background-size: 40px;
+        background-size: 50px;
         display: block;
-        height: 40px;
-        width: 40px;
+        height: 50px;
+        width: 50px;
 
         color: transparent;
         line-height: 0;
         font-size: 0;
     }
 
-    // @include respond-to(handhelds) {
-    //     margin-top: 0.6em;
-    // }
-
     .facebook {
-        background-image: url(/wp-content/themes/lunchboxgarden/assets/facebook.png);
+        background-image: url(/wp-content/themes/lunchboxgarden/assets/facebook.svg);
     }
 
     .twitter {
@@ -134,6 +254,6 @@ h1 {
     }
 
     .instagram {
-        background-image: url(/wp-content/themes/lunchboxgarden/assets/instagram.png);
+        background-image: url(/wp-content/themes/lunchboxgarden/assets/instagram.svg);
     }
 }
