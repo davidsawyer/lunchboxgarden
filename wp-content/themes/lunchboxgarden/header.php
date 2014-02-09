@@ -15,6 +15,20 @@
     ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
+    <?php if(is_home()){ ?>
+        <script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="js/responsiveslides.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $("#slideshow").responsiveSlides({
+                    auto: false,
+                    pager: true,
+                    speed: 300,
+                    nav: true
+                });
+            });
+        </script>
+    <?php } ?>
     <?php wp_head(); ?>
 </head>
 <body>
