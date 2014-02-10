@@ -5,7 +5,7 @@
         $loop = new WP_Query($args);
         while( $loop->have_posts()) : $loop->the_post();
     ?>
-    <li><img src="<?= the_attachment_link();?>"/></li>
+    <li><img src="<?= the_field('photo') ?>"></li>
     <?php endwhile; ?>
 </ul>
 
