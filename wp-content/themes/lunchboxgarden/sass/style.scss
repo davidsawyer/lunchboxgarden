@@ -9,7 +9,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 @import "normalize";
 
-
+$lightGray: #DDD;
 $gray: #878787;
 $green: #8FC563;
 
@@ -36,13 +36,21 @@ $green: #8FC563;
     zoom: 1;
 }
 
-@mixin cacheSocialHoverImage($medium) {
+@mixin socialIcon($medium) {
+    background-image: url(/wp-content/themes/lunchboxgarden/assets/#{$medium}.png);
+    background-image: url(/wp-content/themes/lunchboxgarden/assets/#{$medium}.svg), none;
+
     &:before {
         content: url(/wp-content/themes/lunchboxgarden/assets/#{$medium}2.svg);
         width: 0;
         height: 0;
         visibility: hidden;
         position: absolute;
+    }
+
+    &:active, &:hover {
+        background-image: url(/wp-content/themes/lunchboxgarden/assets/#{$medium}.png);
+        background-image: url(/wp-content/themes/lunchboxgarden/assets/#{$medium}2.svg), none;
     }
 }
 
@@ -55,6 +63,8 @@ $green: #8FC563;
 
 body {
     color: $gray;
+    padding-bottom: 5em;
+    position: relative;
     // font-family: 'Open Sans', sans-serif;
 
     font-family: 'Amethysta', serif;
@@ -270,31 +280,15 @@ nav {
     }
 
     .facebook {
-        background-image: url(/wp-content/themes/lunchboxgarden/assets/facebook.svg);
-
-        @include cacheSocialHoverImage(facebook);
-
-        &:active, &:hover {
-            background-image: url(/wp-content/themes/lunchboxgarden/assets/facebook2.svg);
-        }
+        @include socialIcon(facebook);
     }
 
     .twitter {
-        background-image: url(/wp-content/themes/lunchboxgarden/assets/twitter.svg);
-        @include cacheSocialHoverImage(twitter);
-
-        &:active, &:hover {
-            background-image: url(/wp-content/themes/lunchboxgarden/assets/twitter2.svg);
-        }
+        @include socialIcon(twitter);
     }
 
     .instagram {
-        background-image: url(/wp-content/themes/lunchboxgarden/assets/instagram.svg);
-        @include cacheSocialHoverImage(instagram);
-
-        &:active, &:hover {
-            background-image: url(/wp-content/themes/lunchboxgarden/assets/instagram2.svg);
-        }
+        @include socialIcon(instagram);
     }
 }
 
@@ -323,6 +317,23 @@ nav {
         margin-left: 2em;
         width: 76%;
     }
+}
+
+.headerWrapper {
+    @include clearfix;
+     margin-bottom: 3em;
+}
+
+.carrots {
+    background-image: url(/wp-content/themes/lunchboxgarden/assets/carrots.png);
+    background-position: 0;
+    background-repeat: repeat-x;
+    background-size: auto 126%;
+    height: 2em;
+    width: 150%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
 }
 
 @import "responsiveslides";

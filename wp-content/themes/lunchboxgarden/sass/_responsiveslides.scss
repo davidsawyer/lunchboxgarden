@@ -1,21 +1,23 @@
 /*! http://responsiveslides.com v1.54 by @viljamis */
 
 .rslides {
+  width: 100%;
+
   @include breakpoint(small) {
-    width:410px;
-    height:307px;
+    // height:307px;
   } @include breakpoint(medium){
-    width:620px;
-    height:465px;
-  } @include breakpoint(large){
-    width:720px;
-    height:540px;
+    // height:465px;
+  } @include breakpoint(large) {
+    // height: 500px;
+  } @include breakpoint(extra-large){
+    // height:540px;
+    width: 40em;
   }
   position: relative;
   list-style: none;
   overflow: hidden;
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
 }
 
 .rslides li {
@@ -27,18 +29,13 @@
   top: 0;
 }
 
-.rslides li:first-child {
-  position: relative;
-  display: block;
-  float: left;
-}
-
 .rslides img {
   max-height: 100%;
   max-width: 100%;
   display: block;
   border: 0;
   margin: auto;
+  border-radius: 5px;
 }
 
 #slider3 {
@@ -49,47 +46,46 @@
 }
 
 .rslides_tabs {
-  background: rgba(0,0,0,.25);
-  box-shadow: 0 0 1px rgba(255,255,255,.3), inset 0 0 5px rgba(0,0,0,1.0);
-  -moz-box-shadow: 0 0 1px rgba(255,255,255,.3), inset 0 0 5px rgba(0,0,0,1.0);
-  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.3), inset 0 0 5px rgba(0,0,0,1.0);
-  font-size: 18px;
   list-style: none;
-  padding: 10px 0;
+  padding: 0;
   text-align: center;
-  @include breakpoint(small) {
-    width:410px;
-  } @include breakpoint(medium){
-    width:620px;
-  } @include breakpoint(large){
-    width:720px;
-  }
-}
+  margin: 0.8em auto 1em auto;
+  width: 100%;
 
-.rslides_tabs li {
-  display: inline;
-  float: none;
-  margin-right: 1px;
+  @include breakpoint(extra-large){
+    width: 40em;
+  }
+
+  li {
+    display: inline-block;
+    float: none;
+    height: 1.5em;
+    width: 1.5em;
+    border-radius: 3px;
+    background-color: $lightGray;
+
+    &:not(:last-child) {
+      margin-right: 0.6em;
+    }
+
+    &:hover {
+      background-color: $green;
+    }
+  }
+
+  .rslides_here {
+    background-color: $green;
+  }
 }
 
 .rslides_tabs a {
   line-height: 20px;
-  padding: 9px 20px;
-  background: transparent;
-  display: inline;
-}
-
-.rslides_tabs li:first-child {
-  margin-left: 0;
-}
-
-.rslides_tabs .rslides_here a {
-  background: rgba(255,255,255,.1);
-  color: #fff;
-  font-weight: bold;
-}
-
-a{
-  color: #000;
-  text-decoration: none;
+  padding: 0;
+  height: 1.5em;
+  width: 1.5em;
+  display: block;
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: transparent;
 }

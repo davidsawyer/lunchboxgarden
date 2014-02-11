@@ -21,14 +21,55 @@
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
     <?php } ?>
     <script type="text/javascript">
+    var $shortestImage,
+        shortestImageRatio;
+
     $(document).ready(function() {
     <?php if(is_home()){ ?>
+        var updateSlidesMaxHeight = function() {
+            if ($shortestImage === undefined) {
+                return;
+            }
+
+            $shortestImage.css("width", $(".rslides").css("width"));
+            var newHeight = $shortestImage.width() * shortestImageRatio;
+
+            $(".rslides").css("height", newHeight + "px");
+        };
+
+        var findShortestImage = function() {
+            var smallestHeight = Math.pow(2, 32) - 1, // largest int possible
+                $images = $(".rslides img");
+
+            if ($images.length !== 0) {
+                $images.each(function() {
+                    console.log($(this).height());
+
+                    if ($(this).height() < smallestHeight) {
+                        smallestHeight = $(this).height();
+                        $shortestImage = $(this);
+                        shortestImageRatio = $shortestImage.height() / $shortestImage.width();
+                    }
+                });
+            } else {
+                $shortestImage = undefined;
+            }
+        };
+
+        $(window).load(function() {
+            findShortestImage();
+            updateSlidesMaxHeight();
+        });
+
+        $(window).resize(function() {
+            updateSlidesMaxHeight();
+        });
+
         $("#slideshow").responsiveSlides({
             auto: false,
             pager: true,
             speed: 300
         });
-
     <?php } ?>
 
         $(".menu-button").click(function() {
@@ -42,24 +83,37 @@
 <div class="content">
     <h1><?= $coreTitle ?></h1>
     <div class="menu-button"></div>
-    <?php wp_nav_menu( array(
-        "menu" => "Main Menu",
-        "theme_location" => "primary",
-        "container" => false,
-        "menu_class" => "navigation rolledUp",
-        "fallback_cb" => false,
-        "menu_id" => "",
-        "container" => "nav")
-    );?>
-    <ul class="social">
-        <li><a href="https://www.facebook.com/TheLunchboxGardenProject" title="Facebook" class="facebook">Facebook</a></li>
-        <li><a href="https://www.twitter.com/LunchboxGarden" title="Twitter" class="twitter">Twitter</a></li>
-        <li><a href="http://www.instagram.com/lunchboxgarden" title="Instagram" class="instagram">Instagram</a></li>
-    </ul>
-    <div class="banner"
-        style= "background-image: url(<?= the_field('banner_photo', get_the_ID()) ?>);
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: auto 100%;"
-    >
+    <div class="headerWrapper">
+        <?php wp_nav_menu( array(
+            "menu" => "Main Menu",
+            "theme_location" => "primary",
+            "container" => false,
+            "menu_class" => "navigation rolledUp",
+            "fallback_cb" => false,
+            "menu_id" => "",
+            "container" => "nav")
+        );?>
+        <ul class="social">
+            <li><a href="https://www.facebook.com/TheLunchboxGardenProject" title="Facebook" class="facebook">Facebook</a></li>
+            <li><a href="https://www.twitter.com/LunchboxGarden" title="Twitter" class="twitter">Twitter</a></li>
+            <li><a href="http://www.instagram.com/lunchboxgarden" title="Instagram" class="instagram">Instagram</a></li>
+        </ul>
+        <div class="banner"
+        style= "background-image: url(<?php
+            $url = the_field('banner_photo', get_the_ID());
+            if ($url != '') {
+                echo $url;
+            } else {
+                $args = array('post_type' => 'home_page_banner');
+                $loop = new WP_Query($args);
+                while ($loop->have_posts()) : $loop->the_post();
+                    echo the_field('banner_photo');
+                endwhile;
+            }
+        ?>);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: auto 100%;"
+        >
+        </div>
     </div>
