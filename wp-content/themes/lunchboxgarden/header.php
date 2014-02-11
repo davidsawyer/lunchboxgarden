@@ -26,9 +26,9 @@
         $("#slideshow").responsiveSlides({
             auto: false,
             pager: true,
-            speed: 300,
-            nav: true
+            speed: 300
         });
+
     <?php } ?>
 
         $(".menu-button").click(function() {

@@ -1,11 +1,19 @@
 /*! http://responsiveslides.com v1.54 by @viljamis */
 
 .rslides {
+  @include breakpoint(small) {
+    width:410px;
+    height:307px;
+  } @include breakpoint(medium){
+    width:620px;
+    height:465px;
+  } @include breakpoint(large){
+    width:720px;
+    height:540px;
+  }
   position: relative;
   list-style: none;
   overflow: hidden;
-  width:720px;
-  height:540px;
   padding: 0;
   margin: 0;
 }
@@ -26,9 +34,9 @@
 }
 
 .rslides img {
-  display: block;
-  height: auto;
   max-height: 100%;
+  max-width: 100%;
+  display: block;
   border: 0;
   margin: auto;
 }
@@ -49,7 +57,13 @@
   list-style: none;
   padding: 10px 0;
   text-align: center;
-  width:720px;
+  @include breakpoint(small) {
+    width:410px;
+  } @include breakpoint(medium){
+    width:620px;
+  } @include breakpoint(large){
+    width:720px;
+  }
 }
 
 .rslides_tabs li {
