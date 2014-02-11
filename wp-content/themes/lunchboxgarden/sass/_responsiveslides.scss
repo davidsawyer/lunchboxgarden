@@ -58,11 +58,11 @@
   padding: 10px 0;
   text-align: center;
   @include breakpoint(small) {
-    width:410px;
+    width:29em;
   } @include breakpoint(medium){
-    width:620px;
+    width:39em;
   } @include breakpoint(large){
-    width:720px;
+    width:40em;
   }
 }
 
