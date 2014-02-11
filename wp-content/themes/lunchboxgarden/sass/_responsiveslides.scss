@@ -2,14 +2,14 @@
 
 .rslides {
   @include breakpoint(small) {
-    width:410px;
-    height:307px;
+    width:29em;
+    height:21em;
   } @include breakpoint(medium){
-    width:620px;
-    height:465px;
+    width:39em;
+    height:29em;
   } @include breakpoint(large){
-    width:720px;
-    height:540px;
+    width:40em;
+    height:30em;
   }
   position: relative;
   list-style: none;
