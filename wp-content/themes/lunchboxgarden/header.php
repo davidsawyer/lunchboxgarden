@@ -68,7 +68,8 @@
         $("#slideshow").responsiveSlides({
             auto: false,
             pager: true,
-            speed: 300
+            speed: 300,
+            nav:true
         });
     <?php } ?>
 

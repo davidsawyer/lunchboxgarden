@@ -89,3 +89,26 @@
   overflow: hidden;
   background-color: transparent;
 }
+
+.slider_nav{
+  font-size: 6em;
+  display: inline;
+  opacity: 0.7;
+  position:absolute;
+  top:5.5em;
+  z-index: 2;
+  color:black;
+}
+
+.rslides_nav{
+  display:none;
+}
+
+#back{
+
+}
+
+#forward{
+  left:7em;
+
+}
