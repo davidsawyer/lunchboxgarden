@@ -20,14 +20,30 @@ $green: #8FC563;
     @else if $size == medium {
         @media only screen and (min-width: 30.1em) and (max-width: 48em) { @content; }
     }
+    @else if $size == medium-large {
+        @media only screen and (min-width: 48.1em) and (max-width: 60em) { @content; }
+    }
     @else if $size == large {
         @media only screen and (min-width: 48.1em) { @content; }
+    }
+    @else if $size == extra-large {
+        @media only screen and (min-width: 60.1em) { @content; }
     }
 }
 
 @mixin clearfix {
     overflow: hidden;
     zoom: 1;
+}
+
+@mixin cacheSocialHoverImage($medium) {
+    &:before {
+        content: url(/wp-content/themes/lunchboxgarden/assets/#{$medium}2.svg);
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        position: absolute;
+    }
 }
 
 // apply a natural box layout model to all elements
@@ -39,7 +55,10 @@ $green: #8FC563;
 
 body {
     color: $gray;
-    font-family: 'Open Sans', sans-serif;
+    // font-family: 'Open Sans', sans-serif;
+
+    font-family: 'Amethysta', serif;
+    // font-family: 'Crimson Text', serif;
 
     @include breakpoint(small) {
         font-size: 90%;
@@ -53,6 +72,11 @@ body {
 }
 
 .content {
+    @include clearfix;
+    margin: 0 auto;
+    max-width: 70em;
+    position: relative;
+
     @include breakpoint(small) {
         padding: 0 1em;
     }
@@ -77,6 +101,7 @@ h1 {
     overflow: hidden;
 
     max-width: 100%;
+    margin: 0 auto;
 
     @include breakpoint(small) {
         margin-top: 0.8em;
@@ -89,7 +114,7 @@ h1 {
         width: 12em;
     }
     @include breakpoint(large) {
-        margin-top: 0.2em;
+        margin: 0.2em 0 0 0 ;
         height: 4.5em;
         width: 14.8em;
     }
@@ -97,13 +122,19 @@ h1 {
 
 nav {
     @include clearfix;
+    @include breakpoint(extra-large) {
+        float: left;
+    }
 
     ul {
         @include clearfix;
         list-style-type: none;
         padding: 0;
-        @include breakpoint(large) {
-            float: left;
+        float: right;
+
+        @include breakpoint(medium-large) {
+            float: none;
+            text-align: center;
         }
 
         .active {
@@ -117,25 +148,25 @@ nav {
             border-radius: 5px;
             display: block;
             padding: 0.6em 0.6em;
-            &:not(:last-child) {
-                margin-right: 2%;
-            }
+            margin: 0;
+            text-align: right;
 
-            @include breakpoint(small) {
-                float: left;
-            }
-            @include breakpoint(medium) {
-                float: left;
-            }
             @include breakpoint(large) {
                 margin: 0.5em 0 0 0;
+                text-align: left;
+
+                &:hover {
+                    background-color: $green;
+                    a {
+                        color: #FFF;
+                    }
+                }
             }
 
-            &:hover {
-                background-color: $green;
-                a {
-                    color: #FFF;
-                }
+            @include breakpoint(medium-large) {
+                display: inline-block;
+                margin-left: 3%;
+                margin-right: 3%;
             }
 
             a {
@@ -143,22 +174,14 @@ nav {
                 color: $gray;
                 text-decoration: none;
             }
-
-            @include breakpoint(medium) {
-                background-color: $green;
-                a {
-                    color: #FFF;
-                }
-            }
         }
     }
 }
 
 .menu-button {
-    background-color: rgb(192, 192, 192);
-    background-color: rgba(192, 192, 192, 0.35);
+    background-color: #DDD;
     border-radius: 3px;
-    display: none;
+    display: block;
     font-size: 0;
     line-height: 0;
     color: transparent;
@@ -167,15 +190,14 @@ nav {
     top: 11px;
     height: 40px;
     width: 46px;
+    cursor: pointer;
 
-    @include breakpoint(small) {
-        display: block;
+    &:active {
+        background-color: $green;
+    }
 
-        &:before {
-            -webkit-filter: blur(4px);
-            -moz-filter: blur(4px);
-            filter: blur(4px);
-        }
+    @include breakpoint(large) {
+        display: none;
     }
 
     &:focus {
@@ -183,7 +205,7 @@ nav {
     }
 
     &::after {
-        display: none;
+        display: block;
         content: " ";
         border-color: #fff;
         border-style: solid none double;
@@ -194,8 +216,8 @@ nav {
         top: 10px;
         left: 9px;
 
-        @include breakpoint(small) {
-            display: block;
+        @include breakpoint(large) {
+            display: none;
         }
     }
 }
@@ -207,6 +229,7 @@ nav {
     top: 0;
     list-style-type: none;
     padding: 0;
+    margin-right: 3em;
 
     @include breakpoint(small) {
         position: static;
@@ -216,7 +239,7 @@ nav {
     @include breakpoint(medium) {
         position: static;
         margin: 0 auto;
-        text-align: left;
+        text-align: center;
     }
 
     li {
@@ -229,7 +252,7 @@ nav {
             margin: 0 5%;
         }
         @include breakpoint(medium) {
-            margin-right: 1em;
+            margin: 0 7%;
         }
     }
 
@@ -248,13 +271,56 @@ nav {
 
     .facebook {
         background-image: url(/wp-content/themes/lunchboxgarden/assets/facebook.svg);
+
+        @include cacheSocialHoverImage(facebook);
+
+        &:active, &:hover {
+            background-image: url(/wp-content/themes/lunchboxgarden/assets/facebook2.svg);
+        }
     }
 
     .twitter {
         background-image: url(/wp-content/themes/lunchboxgarden/assets/twitter.svg);
+        @include cacheSocialHoverImage(twitter);
+
+        &:active, &:hover {
+            background-image: url(/wp-content/themes/lunchboxgarden/assets/twitter2.svg);
+        }
     }
 
     .instagram {
         background-image: url(/wp-content/themes/lunchboxgarden/assets/instagram.svg);
+        @include cacheSocialHoverImage(instagram);
+
+        &:active, &:hover {
+            background-image: url(/wp-content/themes/lunchboxgarden/assets/instagram2.svg);
+        }
+    }
+}
+
+.rolledUp {
+    display: none;
+
+    @include breakpoint(large) {
+        display: block;
+    }
+}
+
+.banner {
+    height: 17em;
+    border-radius: 5px;
+    margin: 1em 0 0 0;
+    width: 100%;
+
+    @include breakpoint(small) {
+        height: 11em;
+    }
+    @include breakpoint(medium) {
+        height: 15em;
+    }
+    @include breakpoint(extra-large) {
+        float: right;
+        margin-left: 2em;
+        width: 76%;
     }
 }

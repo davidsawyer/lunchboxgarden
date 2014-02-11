@@ -14,24 +14,31 @@
         }
     ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="<?php echo get_stylesheet_uri(); ?>" />
+    <link href='http://fonts.googleapis.com/css?family=Amethysta|Crimson+Text' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="<?= get_stylesheet_uri() ?>" />
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.0.min.js"></script>
     <?php if(is_home()){ ?>
-        <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $("#slideshow").responsiveSlides({
-                    auto: false,
-                    pager: true,
-                    speed: 300,
-                    nav: true
-                });
-            });
-        </script>
+    <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
     <?php } ?>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    <?php if(is_home()){ ?>
+        $("#slideshow").responsiveSlides({
+            auto: false,
+            pager: true,
+            speed: 300,
+            nav: true
+        });
+    <?php } ?>
+
+        $(".menu-button").click(function() {
+            $(".navigation").toggleClass("rolledUp");
+        });
+    });
+    </script>
     <?php wp_head(); ?>
 </head>
-<body>
+<body ontouchstart="">
 <div class="content">
     <h1><?= $coreTitle ?></h1>
     <div class="menu-button"></div>
@@ -49,3 +56,10 @@
         <li><a href="https://www.twitter.com/LunchboxGarden" title="Twitter" class="twitter">Twitter</a></li>
         <li><a href="http://www.instagram.com/lunchboxgarden" title="Instagram" class="instagram">Instagram</a></li>
     </ul>
+    <div class="banner"
+        style= "background-image: url(<?= the_field('banner_photo', get_the_ID()) ?>);
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: auto 100%;"
+    >
+    </div>
