@@ -341,6 +341,10 @@ nav {
     left: 0;
 }
 
+.about_heading {
+    margin-top: 1.5em;
+}
+
 .page_content{
     @include breakpoint(extra-large) {
         float: right;
