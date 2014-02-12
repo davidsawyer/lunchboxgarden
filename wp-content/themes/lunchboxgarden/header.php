@@ -79,10 +79,10 @@
             case "/about/":
                 navItem = 1;
                 break;
-            case "/get-involved/":
+            case "/where-we-are/":
                 navItem = 2;
                 break;
-            case "/where-we-are/":
+            case "/get-involved/":
                 navItem = 3;
                 break;
         }
