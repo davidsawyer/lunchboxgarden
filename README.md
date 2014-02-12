@@ -1,4 +1,4 @@
-What to do after pushing to UGA's server
+**What to do after pushing to UGA's server**
 
 1. ftp `wp-config` up to the server
 2. tweak `wp-config` to suit the server's db setup
