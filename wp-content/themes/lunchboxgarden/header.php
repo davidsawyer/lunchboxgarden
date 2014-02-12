@@ -70,6 +70,24 @@
             nav:true
         });
     <?php } ?>
+        var navItem;
+
+        switch (window.location.pathname) {
+            case "/":
+                navItem = 0;
+                break;
+            case "/about/":
+                navItem = 1;
+                break;
+            case "/get-involved/":
+                navItem = 2;
+                break;
+            case "/where-we-are/":
+                navItem = 3;
+                break;
+        }
+
+        $("nav ul li:eq(" + navItem + ")").addClass("active");
 
         $(".menu-button").click(function() {
             $(".navigation").toggleClass("rolledUp");
