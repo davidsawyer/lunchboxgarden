@@ -391,7 +391,7 @@ nav {
 
 .board_wrapper {
     &:not(:first-child){
-        margin-top: 0.5em;
+        margin-top: 2em;
     }
     @include clearfix;
 }
