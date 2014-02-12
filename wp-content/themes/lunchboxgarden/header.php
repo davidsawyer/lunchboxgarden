@@ -21,11 +21,11 @@
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
     <?php } ?>
     <script type="text/javascript">
-    var $shortestImage,
-        shortestImageRatio;
-
     $(document).ready(function() {
     <?php if(is_home()){ ?>
+        var $shortestImage,
+            shortestImageRatio;
+
         var updateSlidesMaxHeight = function() {
             if ($shortestImage === undefined) {
                 return;
@@ -43,8 +43,6 @@
 
             if ($images.length !== 0) {
                 $images.each(function() {
-                    console.log($(this).height());
-
                     if ($(this).height() < smallestHeight) {
                         smallestHeight = $(this).height();
                         $shortestImage = $(this);
@@ -72,6 +70,24 @@
             nav:true
         });
     <?php } ?>
+        var navItem;
+
+        switch (window.location.pathname) {
+            case "/":
+                navItem = 0;
+                break;
+            case "/about/":
+                navItem = 1;
+                break;
+            case "/get-involved/":
+                navItem = 2;
+                break;
+            case "/where-we-are/":
+                navItem = 3;
+                break;
+        }
+
+        $("nav ul li:eq(" + navItem + ")").addClass("active");
 
         $(".menu-button").click(function() {
             $(".navigation").toggleClass("rolledUp");
