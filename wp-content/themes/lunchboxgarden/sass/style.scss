@@ -61,6 +61,11 @@ $green: #8FC563;
     box-sizing: border-box;
 }
 
+// fix weird wordpress admin bar issue
+#wpadminbar {
+    position: fixed !important;
+}
+
 body {
     color: $gray;
     padding-bottom: 5em;
@@ -132,7 +137,6 @@ h1 {
 
 h2{
     color:$green;
-    margin-top: 0;
 }
 
 nav {
@@ -341,6 +345,10 @@ nav {
     left: 0;
 }
 
+.about_heading {
+    margin-top: 1.5em;
+}
+
 .page_content{
     @include breakpoint(extra-large) {
         float: right;
@@ -349,17 +357,35 @@ nav {
     }
 }
 
+.location {
+    &:not(:first-child) {
+        margin-top: 2em;
+    }
+}
+
+.location_wrapper {
+    @include clearfix;
+}
+
 .location_img{
-    margin-right: 0.4em;
+    float: none;
+    margin-right: 1em;
     max-width: 15em;
-    @include breakpoint(small){
-        max-width: 10em;
+
+    @include breakpoint(large) {
+        float: left;
     }
 }
 
 .location_addr{
-    display: inline;
-    vertical-align: top;
+    float: none;
+    margin: 0;
+    margin-top: 0.5em;
+
+    @include breakpoint(large) {
+        float: left;
+        margin-top: 0;
+    }
 }
 
 @import "responsiveslides";

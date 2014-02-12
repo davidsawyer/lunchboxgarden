@@ -5,10 +5,12 @@
             $loop = new WP_Query($args);
             while( $loop->have_posts()) : $loop->the_post();
         ?>
-            <div>
+            <div class="location">
                 <h2><?php the_field('location_name') ?></h2>
-                <img class="location_img" src="<?php echo the_field('location_image')?>"/>
-                <p class="location_addr"><?php the_field('location_address') ?></p>
+                <div class="location_wrapper">
+                    <img class="location_img" src="<?php echo the_field('location_image')?>"/>
+                    <p class="location_addr"><?php the_field('location_address') ?></p>
+                </div>
             </div>
         <?php endwhile; ?>
     </div>
