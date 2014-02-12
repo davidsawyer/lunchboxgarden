@@ -349,4 +349,17 @@ nav {
     }
 }
 
+.location_img{
+    margin-right: 0.4em;
+    max-width: 15em;
+    @include breakpoint(small){
+        max-width: 10em;
+    }
+}
+
+.location_addr{
+    display: inline;
+    vertical-align: top;
+}
+
 @import "responsiveslides";
