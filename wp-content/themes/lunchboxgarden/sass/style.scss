@@ -353,6 +353,12 @@ nav {
     }
 }
 
+.location {
+    &:not(:first-child) {
+        margin-top: 2em;
+    }
+}
+
 .location_img{
     margin-right: 0.4em;
     max-width: 15em;
