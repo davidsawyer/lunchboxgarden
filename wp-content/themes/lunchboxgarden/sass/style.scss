@@ -130,6 +130,11 @@ h1 {
     }
 }
 
+h2{
+    color:$green;
+    margin-top: 0;
+}
+
 nav {
     @include clearfix;
     @include breakpoint(extra-large) {
@@ -334,6 +339,14 @@ nav {
     position: absolute;
     bottom: 0;
     left: 0;
+}
+
+.page_content{
+    @include breakpoint(extra-large) {
+        float: right;
+        margin-left: 2em;
+        width: 76%;
+    }
 }
 
 @import "responsiveslides";
