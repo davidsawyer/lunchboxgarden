@@ -346,7 +346,9 @@ nav {
 }
 
 .about_heading {
-    margin-top: 1.5em;
+    &:not(:first-child) {
+        margin-top: 1.5em;
+    }
 }
 
 .page_content{
