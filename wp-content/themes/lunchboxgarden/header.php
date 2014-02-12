@@ -21,11 +21,11 @@
     <script type="text/javascript" src="<?php bloginfo('template_url'); ?>/js/responsiveslides.min.js"></script>
     <?php } ?>
     <script type="text/javascript">
-    var $shortestImage,
-        shortestImageRatio;
-
     $(document).ready(function() {
     <?php if(is_home()){ ?>
+        var $shortestImage,
+            shortestImageRatio;
+
         var updateSlidesMaxHeight = function() {
             if ($shortestImage === undefined) {
                 return;
