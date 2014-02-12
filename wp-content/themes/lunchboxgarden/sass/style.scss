@@ -359,6 +359,10 @@ nav {
     }
 }
 
+.location_wrapper {
+    @include clearfix;
+}
+
 .location_img{
     margin-right: 0.4em;
     max-width: 15em;
