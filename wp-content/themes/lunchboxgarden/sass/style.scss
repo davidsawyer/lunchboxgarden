@@ -389,6 +389,13 @@ nav {
     }
 }
 
+.board_wrapper {
+    &:not(:first-child){
+        margin-top: 0.5em;
+    }
+    @include clearfix;
+}
+
 .board_headshot{
     float: none;
     margin-right: 1em;
