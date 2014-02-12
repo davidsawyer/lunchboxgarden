@@ -6,4 +6,6 @@ style.css
 .sass-cache
 wp-content/uploads
 wp-config.php
+sitemap.xml
+sitemap.xml.gz
 
