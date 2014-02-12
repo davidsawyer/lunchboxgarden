@@ -371,6 +371,7 @@ nav {
     float: none;
     margin-right: 1em;
     max-width: 15em;
+    border-radius: 5px;
 
     @include breakpoint(large) {
         float: left;
