@@ -101,14 +101,14 @@
         </ul>
         <div class="banner"
         style= "background-image: url(<?php
-            $url = the_field('banner_photo', get_the_ID());
+            $url = get_field('banner_photo', get_the_ID());
             if ($url != '') {
                 echo $url;
             } else {
                 $args = array('post_type' => 'home_page_banner');
                 $loop = new WP_Query($args);
                 while ($loop->have_posts()) : $loop->the_post();
-                    echo the_field('banner_photo');
+                    echo get_field('banner_photo');
                 endwhile;
             }
         ?>);
