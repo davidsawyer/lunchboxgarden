@@ -7,7 +7,7 @@
         ?>
             <div class="location">
                 <h2><?php the_field('location_name') ?></h2>
-                <div class="location_wrapper">
+                <div class="float_wrapper">
                     <img class="location_img" src="<?php echo the_field('location_image')?>"/>
                     <p class="location_addr"><?php the_field('location_address') ?></p>
                 </div>
