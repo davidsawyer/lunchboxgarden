@@ -43,8 +43,6 @@
 
             if ($images.length !== 0) {
                 $images.each(function() {
-                    console.log($(this).height());
-
                     if ($(this).height() < smallestHeight) {
                         smallestHeight = $(this).height();
                         $shortestImage = $(this);
