@@ -61,6 +61,11 @@ $green: #8FC563;
     box-sizing: border-box;
 }
 
+// fix weird wordpress admin bar issue
+#wpadminbar {
+    position: fixed !important;
+}
+
 body {
     color: $gray;
     padding-bottom: 5em;
