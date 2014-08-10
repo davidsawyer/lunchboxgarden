@@ -309,6 +309,11 @@ nav {
     }
 }
 
+a {
+    color: $green;
+    text-decoration: none;
+}
+
 .banner {
     height: 17em;
     border-radius: 5px;
@@ -416,6 +421,14 @@ nav {
         margin-top: 0;
         margin-bottom: 0.5em;
     }
+}
+
+.credit {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+    font-size: 0.5em;
+    color: #BBB;
 }
 
 @import "responsiveslides";
