@@ -423,12 +423,38 @@ a {
     }
 }
 
-.credit {
-    position: absolute;
-    bottom: 40px;
-    right: 10px;
-    font-size: 0.5em;
-    color: #BBB;
+#ss-form ul{
+    list-style-type: none;
+}
+
+.ss-form-question{
+    margin-bottom: 1.0em;
+}
+
+#ss-submit{
+    color:#fff;
+    background-color:$green;
+    border-radius: 5px;
+    border-top-width: 0;
+    border-left-width: 0;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-color:$lightGray;
+    padding: 0.4em 0.8em;
+
+    &:active {
+        border-top-width: 2px;
+        border-left-width: 2px;
+        border-right-width: 0;
+        border-bottom-width: 0;
+    }
+    &:focus{
+        outline:0;
+    }
+}
+
+form{
+    width:100%;
 }
 
 @import "responsiveslides";
