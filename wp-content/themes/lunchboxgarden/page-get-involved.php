@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+    <div class="page_content">
+
 <h2>Join the Lunchbox!</h2>
 <form action="https://docs.google.com/forms/d/1lN6RY5wW2eLIbfkgFh5eYpHseXQwQfI3mHUC2hoVJbU/formResponse" method="POST" id="ss-form" target="_self" onsubmit=""><div role="list">
 <div class="ss-form-question errorbox-good" role="listitem">
@@ -70,4 +72,5 @@ Other:</label>
 <div class="ss-item ss-navigate"><table id="navigation-table"><tbody><tr><td class="ss-form-entry goog-inline-block" id="navigation-buttons" dir="ltr">
 <input type="submit" name="submit" value="Submit" id="ss-submit">
 </tr></tbody></table></div></div></form>
+</div>
 <?php get_footer(); ?>

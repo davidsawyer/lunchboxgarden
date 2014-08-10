@@ -166,7 +166,6 @@ nav {
         li {
             border-radius: 5px;
             display: block;
-            padding: 0.6em 0.6em;
             margin: 0;
             text-align: right;
 
@@ -192,6 +191,8 @@ nav {
                 display: block;
                 color: $gray;
                 text-decoration: none;
+                line-height: 2.45em;
+                padding: 0 0.6em;
             }
         }
     }
@@ -356,7 +357,7 @@ a {
     }
 }
 
-.page_content{
+.page_content {
     @include breakpoint(extra-large) {
         float: right;
         margin-left: 2em;
@@ -374,7 +375,7 @@ a {
     @include clearfix;
 }
 
-.location_img{
+.location_img {
     float: none;
     margin-right: 1em;
     max-width: 15em;
@@ -385,7 +386,7 @@ a {
     }
 }
 
-.location_addr{
+.location_addr {
     float: none;
     margin: 0;
     margin-top: 0.5em;
@@ -403,7 +404,7 @@ a {
     @include clearfix;
 }
 
-.board_headshot{
+.board_headshot {
     float: none;
     margin-right: 1em;
     max-width: 10em;
@@ -414,7 +415,7 @@ a {
     }
 }
 
-.board_info{
+.board_info {
     margin-top: 0.5em;
 
     @include breakpoint(large) {
@@ -423,15 +424,35 @@ a {
     }
 }
 
-#ss-form ul{
-    list-style-type: none;
+#ss-form {
+    textarea {
+        @include breakpoint(small) {
+            width: 100%;
+        }
+    }
+
+    ul{
+        list-style-type: none;
+    }
 }
 
-.ss-form-question{
+.ss-form-question {
     margin-bottom: 1.0em;
 }
 
-#ss-submit{
+.ss-navigate {
+    @include breakpoint(small) {
+        height: 32px;
+    }
+    @include breakpoint(medium) {
+        height: 36px;
+    }
+    @include breakpoint(medium-large) {
+        height: 38px;
+    }
+}
+
+#ss-submit {
     color:#fff;
     background-color:$green;
     border-radius: 5px;
@@ -448,12 +469,20 @@ a {
         border-right-width: 0;
         border-bottom-width: 0;
     }
-    &:focus{
+    &:focus {
         outline:0;
     }
 }
 
-form{
+.credit {
+    position: absolute;
+    bottom: 40px;
+    right: 10px;
+    font-size: 0.5em;
+    color: #BBB;
+}
+
+form {
     width:100%;
 }
 
