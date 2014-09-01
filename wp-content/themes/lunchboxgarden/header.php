@@ -52,7 +52,7 @@
             $shortestImage.css("width", $(".rslides").css("width"));
             var newHeight = $shortestImage.width() * shortestImageRatio;
 
-            $(".rslides").css("height", newHeight + "px");
+            $(".rslides, .rslides li").css("height", newHeight + "px");
         };
 
         var findShortestImage = function() {
